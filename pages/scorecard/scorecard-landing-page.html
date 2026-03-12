@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Owner's Financial Scorecard — S1 Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ──────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bottle-green: #1B4332;
+    --tawny: #C08B3E;
+    --honey: #D49535;
+    --sand: #E8DBC0;
+    --warm-charcoal: #2B2D2B;
+    --fieldstone: #6B6E6B;
+    --parchment: #F0EDE7;
+    --ivory: #FAF8F5;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+    color: var(--warm-charcoal);
+    background: var(--ivory);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--bottle-green);
+    line-height: 1.3;
+  }
+
+  /* ── Header ────────────────────────────────────── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 16px 32px;
+  }
+  .site-header .logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--bottle-green);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .site-header .logo .bar {
+    width: 3px;
+    height: 20px;
+    background: var(--tawny);
+    display: inline-block;
+    border-radius: 1px;
+  }
+  .site-header .logo .s1 { letter-spacing: 0.02em; }
+  .site-header .logo .finance {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fieldstone);
+  }
+
+  /* ── Hero ───────────────────────────────────────── */
+  .hero {
+    background: var(--bottle-green);
+    color: var(--parchment);
+    padding: 80px 32px 72px;
+    text-align: center;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    color: var(--parchment);
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.25;
+  }
+  .hero .subhead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--sand);
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--honey);
+    color: var(--warm-charcoal);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: #C08B3E;
+    transform: translateY(-1px);
+  }
+  .hero .friction-reducer {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--sand);
+    opacity: 0.8;
+  }
+  .hero .friction-reducer span {
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+
+  /* ── Section base ──────────────────────────────── */
+  section {
+    padding: 72px 32px;
+  }
+  .section-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  /* ── What You'll Learn ─────────────────────────── */
+  .learn-section {
+    background: var(--white);
+  }
+  .learn-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .learn-list li {
+    padding: 24px 28px;
+    background: var(--ivory);
+    border-radius: 8px;
+    border-left: 4px solid var(--tawny);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .learn-list li strong {
+    color: var(--bottle-green);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── How It Works ──────────────────────────────── */
+  .how-section {
+    background: var(--parchment);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 700px) {
+    .steps { grid-template-columns: 1fr; }
+  }
+  .step {
+    text-align: center;
+    padding: 32px 20px;
+    background: var(--white);
+    border-radius: 12px;
+  }
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bottle-green);
+    color: var(--parchment);
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+  .step p {
+    font-size: 0.95rem;
+    color: var(--fieldstone);
+    line-height: 1.55;
+  }
+
+  /* ── Who This Is For ───────────────────────────── */
+  .who-section {
+    background: var(--white);
+  }
+  .who-for-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .who-for-list li {
+    padding-left: 28px;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .who-for-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--bottle-green);
+    font-weight: 700;
+  }
+  .not-for {
+    padding: 20px 24px;
+    background: var(--parchment);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--fieldstone);
+    line-height: 1.55;
+  }
+  .not-for strong {
+    color: var(--warm-charcoal);
+  }
+
+  /* ── Credibility ───────────────────────────────── */
+  .credibility-section {
+    background: var(--bottle-green);
+    color: var(--parchment);
+    text-align: center;
+  }
+  .credibility-section .section-title {
+    color: var(--parchment);
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  .credibility-section p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--sand);
+  }
+
+  /* ── Bottom CTA ────────────────────────────────── */
+  .bottom-cta {
+    background: var(--parchment);
+    text-align: center;
+    padding: 80px 32px;
+  }
+  .bottom-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 28px;
+  }
+  .bottom-cta .below-btn {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--fieldstone);
+  }
+  .bottom-cta .below-btn span {
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+
+  /* ── Footer ────────────────────────────────────── */
+  .site-footer {
+    background: var(--warm-charcoal);
+    color: var(--fieldstone);
+    text-align: center;
+    padding: 28px 32px;
+    font-size: 0.85rem;
+  }
+  .site-footer a {
+    color: var(--sand);
+    text-decoration: none;
+  }
+  .site-footer a:hover { text-decoration: underline; }
+  .site-footer .footer-links {
+    margin: 8px 0 4px;
+  }
+  .site-footer .footer-links span { margin: 0 8px; opacity: 0.5; }
+
+  /* ── Responsive ────────────────────────────────── */
+  @media (max-width: 600px) {
+    .hero { padding: 56px 20px 48px; }
+    .hero h1 { font-size: 1.8rem; }
+    section { padding: 48px 20px; }
+    .section-title { font-size: 1.4rem; }
+  }
+
+  /* ── Build Note Banner ─────────────────────────── */
+  .build-note {
+    background: #FFF3CD;
+    border-bottom: 2px solid var(--honey);
+    padding: 12px 32px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--warm-charcoal);
+  }
+  .build-note strong { color: var(--tawny); }
+</style>
+</head>
+<body>
+
+<!-- Build reference banner (remove in production) -->
+<div class="build-note">
+  <strong>BUILD REFERENCE MOCKUP</strong> — This is the target design for the ScoreApp landing page. Copy and layout should match this when built.
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <a href="https://s1finance.com" class="logo">
+    <span class="s1">S1</span>
+    <span class="bar"></span>
+    <span class="finance">Finance</span>
+  </a>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>You know something's off with your numbers. You just can't pinpoint what.</h1>
+    <p class="subhead">The Owner's Financial Scorecard is a free 5-minute assessment that shows you exactly where your financial operations are strong, where the gaps are, and what to do about it.</p>
+    <a href="#" class="btn-primary">Take the Free Assessment →</a>
+    <p class="friction-reducer">15 questions <span>·</span> 5 minutes <span>·</span> Instant results</p>
+  </div>
+</section>
+
+<!-- ═══ WHAT YOU'LL LEARN ═══ -->
+<section class="learn-section">
+  <div class="section-inner">
+    <h2 class="section-title">In 5 minutes, you'll know:</h2>
+    <ul class="learn-list">
+      <li>
+        <strong>Whether your cash flow is a system or a guessing game</strong>
+        — and what a 90-day forecast would change
+      </li>
+      <li>
+        <strong>If your financial reports are built for tax time or for running your business</strong>
+        — most owners don't realize there's a difference
+      </li>
+      <li>
+        <strong>Which parts of your business are actually profitable</strong>
+        — not just revenue, but real margins by service or client
+      </li>
+      <li>
+        <strong>How much of your accounting still runs on manual work and workarounds</strong>
+        — and where automation would pay for itself
+      </li>
+      <li>
+        <strong>Whether you're making your biggest financial decisions alone</strong>
+        — and what changes when you're not
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-section">
+  <div class="section-inner">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Answer 15 questions</h3>
+        <p>No prep needed. Just answer honestly about how your business handles cash, reporting, planning, systems, and advisory today. There are no wrong answers — only honest ones.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Get your score instantly</h3>
+        <p>See your overall financial operations score, a breakdown across five categories, and where you compare to businesses your size. Your strengths and biggest opportunities — identified in under a minute.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get a personalized action plan</h3>
+        <p>Download your full Scorecard report with section-by-section insights, specific next steps, and one clear recommendation for where to start. Plus, if you want to go deeper on any area, you can.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHO THIS IS FOR ═══ -->
+<section class="who-section">
+  <div class="section-inner">
+    <h2 class="section-title">Built for business owners who:</h2>
+    <ul class="who-for-list">
+      <li>Run a company doing $1M–$25M in revenue and make the financial decisions</li>
+      <li>Have a CPA for taxes but no one helping them use financials to run the business</li>
+      <li>Suspect their financial operations haven't kept up with their growth</li>
+      <li>Want clarity, not a sales pitch</li>
+    </ul>
+    <div class="not-for">
+      <strong>Not for:</strong> Startups pre-revenue, enterprises with a full finance team, or anyone looking for tax advice. This is about financial operations — how you manage, plan, and make decisions with your numbers.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CREDIBILITY ═══ -->
+<section class="credibility-section">
+  <div class="section-inner">
+    <p>Built by a finance partner who's worked inside businesses like yours — not from the outside looking in. The Scorecard is based on the same diagnostic framework we use with clients to identify where financial operations create the most drag and where small changes unlock the most value.</p>
+  </div>
+</section>
+
+<!-- ═══ BOTTOM CTA ═══ -->
+<section class="bottom-cta">
+  <div class="section-inner">
+    <h2>5 minutes now could change how you see your business.</h2>
+    <a href="#" class="btn-primary">Take the Free Assessment →</a>
+    <p class="below-btn">Free <span>·</span> No obligation <span>·</span> Your results are yours</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div>S1 Finance &copy; 2026</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <span>·</span>
+    <a href="/privacy">Privacy Policy</a>
+  </div>
+  <div>Built in Dallas for business owners everywhere</div>
+</footer>
+
+</body>
+</html>

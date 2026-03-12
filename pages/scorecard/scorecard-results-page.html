@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Scorecard Results — S1 Finance</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ──────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bottle-green: #1B4332;
+    --bottle-green-20: rgba(27, 67, 50, 0.15);
+    --tawny: #C08B3E;
+    --honey: #D49535;
+    --sand: #E8DBC0;
+    --warm-charcoal: #2B2D2B;
+    --fieldstone: #6B6E6B;
+    --parchment: #F0EDE7;
+    --ivory: #FAF8F5;
+    --white: #FFFFFF;
+    --low-red: #B85C4A;
+    --mid-amber: #C08B3E;
+    --high-green: #1B4332;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+    color: var(--warm-charcoal);
+    background: var(--ivory);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--bottle-green);
+    line-height: 1.3;
+  }
+
+  /* ── Header ────────────────────────────────────── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 16px 32px;
+  }
+  .logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--bottle-green);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo .bar {
+    width: 3px;
+    height: 20px;
+    background: var(--tawny);
+    display: inline-block;
+    border-radius: 1px;
+  }
+  .logo .finance {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fieldstone);
+  }
+
+  /* ── Build Note ────────────────────────────────── */
+  .build-note {
+    background: #FFF3CD;
+    border-bottom: 2px solid var(--honey);
+    padding: 12px 32px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--warm-charcoal);
+  }
+  .build-note strong { color: var(--tawny); }
+
+  /* ── Tier Toggle (mockup switcher) ─────────────── */
+  .tier-toggle {
+    background: var(--parchment);
+    border-bottom: 1px solid var(--sand);
+    padding: 12px 32px;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .tier-toggle span { margin-right: 12px; font-weight: 600; }
+  .tier-btn {
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 6px 16px;
+    margin: 0 4px;
+    border: 2px solid var(--bottle-green);
+    border-radius: 4px;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bottle-green);
+    transition: all 0.2s;
+  }
+  .tier-btn.active, .tier-btn:hover {
+    background: var(--bottle-green);
+    color: var(--parchment);
+  }
+
+  /* ── Score Hero ─────────────────────────────────── */
+  .score-hero {
+    background: var(--bottle-green);
+    color: var(--parchment);
+    padding: 64px 32px 48px;
+    text-align: center;
+  }
+  .score-hero .score-display {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--honey);
+    margin-bottom: 8px;
+  }
+  .score-hero .score-display .of-total {
+    font-size: 1.5rem;
+    color: var(--sand);
+    font-weight: 400;
+  }
+  .score-hero .tier-badge {
+    display: inline-block;
+    background: rgba(192, 139, 62, 0.2);
+    border: 1px solid var(--tawny);
+    color: var(--honey);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  .score-hero h1 {
+    color: var(--parchment);
+    font-size: 2rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
+  }
+  .score-hero .subhead {
+    color: var(--sand);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ── Radar Chart Area ──────────────────────────── */
+  .chart-section {
+    background: var(--white);
+    padding: 56px 32px;
+    text-align: center;
+  }
+  .chart-container {
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+  .chart-container canvas {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* ── Callout boxes ─────────────────────────────── */
+  .callouts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    .callouts { grid-template-columns: 1fr; }
+  }
+  .callout {
+    padding: 24px;
+    border-radius: 10px;
+    text-align: left;
+  }
+  .callout-strength {
+    background: rgba(27, 67, 50, 0.08);
+    border-left: 4px solid var(--bottle-green);
+  }
+  .callout-opportunity {
+    background: rgba(192, 139, 62, 0.1);
+    border-left: 4px solid var(--tawny);
+  }
+  .callout-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .callout-strength .callout-label { color: var(--bottle-green); }
+  .callout-opportunity .callout-label { color: var(--tawny); }
+  .callout h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .callout p { font-size: 0.95rem; color: var(--fieldstone); line-height: 1.5; }
+
+  /* ── Section Insights ──────────────────────────── */
+  .insights-section {
+    background: var(--parchment);
+    padding: 64px 32px;
+  }
+  .insights-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .insights-section .section-title {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .insight-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .insight-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .insight-header h3 {
+    font-size: 1.2rem;
+    flex: 1;
+  }
+  .score-badge {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .score-low { background: rgba(184, 92, 74, 0.12); color: var(--low-red); }
+  .score-mid { background: rgba(192, 139, 62, 0.15); color: var(--tawny); }
+  .score-high { background: rgba(27, 67, 50, 0.12); color: var(--bottle-green); }
+
+  .tier-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tier-dot.low { background: var(--low-red); }
+  .tier-dot.mid { background: var(--tawny); }
+  .tier-dot.high { background: var(--bottle-green); }
+
+  .insight-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--warm-charcoal);
+    margin-bottom: 20px;
+  }
+
+  .consider-box {
+    background: var(--ivory);
+    border-left: 3px solid var(--tawny);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+  }
+  .consider-box .label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--tawny);
+    margin-bottom: 6px;
+  }
+  .consider-box p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--fieldstone);
+  }
+
+  /* ── Benchmark bar ─────────────────────────────── */
+  .benchmark-bar {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--parchment);
+    border-radius: 4px;
+    position: relative;
+    overflow: visible;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+  .bar-fill.low { background: var(--low-red); }
+  .bar-fill.mid { background: var(--tawny); }
+  .bar-fill.high { background: var(--bottle-green); }
+
+  .benchmark-marker {
+    position: absolute;
+    top: -6px;
+    width: 2px;
+    height: 20px;
+    background: var(--tawny);
+    border-radius: 1px;
+  }
+  .bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--fieldstone);
+    margin-top: 4px;
+  }
+  .benchmark-legend {
+    font-size: 0.78rem;
+    color: var(--fieldstone);
+    margin-top: 6px;
+  }
+  .benchmark-legend .tawny-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--tawny);
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* ── CTA Section ───────────────────────────────── */
+  .cta-section {
+    background: var(--bottle-green);
+    color: var(--parchment);
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-section h2 {
+    color: var(--parchment);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  .cta-section p {
+    color: var(--sand);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--honey);
+    color: var(--warm-charcoal);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--tawny);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    display: inline-block;
+    color: var(--sand);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 16px;
+    cursor: pointer;
+  }
+  .btn-secondary:hover { color: var(--parchment); }
+
+  /* ── Stage 2 Teaser ────────────────────────────── */
+  .stage2-section {
+    background: var(--white);
+    padding: 64px 32px;
+    text-align: center;
+  }
+  .stage2-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .stage2-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .stage2-section .intro {
+    font-size: 1.05rem;
+    color: var(--fieldstone);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .deep-dive-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 700px) {
+    .deep-dive-options { grid-template-columns: repeat(2, 1fr); }
+  }
+  .dd-option {
+    padding: 20px 12px;
+    border: 2px solid var(--sand);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .dd-option:hover {
+    border-color: var(--bottle-green);
+    background: rgba(27, 67, 50, 0.04);
+  }
+  .dd-option .dd-icon {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  .dd-option .dd-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bottle-green);
+    line-height: 1.3;
+  }
+
+  /* ── Footer ────────────────────────────────────── */
+  .site-footer {
+    background: var(--warm-charcoal);
+    color: var(--fieldstone);
+    text-align: center;
+    padding: 28px 32px;
+    font-size: 0.85rem;
+  }
+  .site-footer a {
+    color: var(--sand);
+    text-decoration: none;
+  }
+
+  /* ── Responsive ────────────────────────────────── */
+  @media (max-width: 600px) {
+    .score-hero { padding: 48px 20px 36px; }
+    .score-hero h1 { font-size: 1.5rem; }
+    .score-hero .score-display { font-size: 3rem; }
+    .insight-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Build reference banner -->
+<div class="build-note">
+  <strong>BUILD REFERENCE MOCKUP</strong> — Results page showing <strong>Growth Tier</strong> example (score 32/60). Toggle tiers to see all three headline variants.
+</div>
+
+<!-- Tier toggle for preview -->
+<div class="tier-toggle">
+  <span>Preview tier:</span>
+  <button class="tier-btn" data-tier="foundation" onclick="showTier('foundation')">Foundation (0–20)</button>
+  <button class="tier-btn active" data-tier="growth" onclick="showTier('growth')">Growth (21–40)</button>
+  <button class="tier-btn" data-tier="strategic" onclick="showTier('strategic')">Strategic (41–60)</button>
+</div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <a href="https://s1finance.com" class="logo">
+    <span>S1</span>
+    <span class="bar"></span>
+    <span class="finance">Finance</span>
+  </a>
+</header>
+
+<!-- ═══ SCORE HERO ═══ -->
+<section class="score-hero" id="scoreHero">
+  <div class="score-display" id="scoreNumber">32 <span class="of-total">/ 60</span></div>
+  <div class="tier-badge" id="tierBadge">Growth Tier</div>
+  <h1 id="tierHeadline">You've built something real. Your financial operations haven't caught up yet.</h1>
+  <p class="subhead" id="tierSubhead">You have the foundation in place, but your financial infrastructure isn't keeping pace with where your business is headed. Most owners at your stage don't realize how much clarity they're leaving on the table.</p>
+</section>
+
+<!-- ═══ RADAR CHART + CALLOUTS ═══ -->
+<section class="chart-section">
+  <div class="chart-container">
+    <canvas id="radarChart" width="480" height="480"></canvas>
+  </div>
+  <div class="callouts">
+    <div class="callout callout-strength">
+      <div class="callout-label">Where you're ahead</div>
+      <h3>Financial Systems</h3>
+      <p>You have good tools in place — the foundation is solid. The connections and automation are where the next gains are.</p>
+    </div>
+    <div class="callout callout-opportunity">
+      <div class="callout-label">Where the biggest gains are</div>
+      <h3>Cash Flow Visibility</h3>
+      <p>You're making decisions based on what's in the bank right now — which means you're always reacting, never anticipating.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION INSIGHTS ═══ -->
+<section class="insights-section">
+  <div class="insights-inner">
+    <h2 class="section-title">Your Section-by-Section Breakdown</h2>
+
+    <!-- Section A: Cash Flow — LOW -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <h3><span class="tier-dot low"></span> Cash Flow Visibility & Forecasting</h3>
+        <span class="score-badge score-low">3 / 12</span>
+      </div>
+      <div class="insight-body">
+        <p>You're making decisions based on what's in the bank account right now — which means you're always reacting, never anticipating. Most owners in this position have experienced at least one cash surprise in the past year that didn't need to happen.</p>
+        <p style="margin-top:12px">Here's the thing: you're probably profitable. Cash flow problems and profitability problems aren't the same thing — but without visibility, they feel identical. A structured cash forecast would separate the two and give you breathing room you didn't know you had.</p>
+      </div>
+      <div class="consider-box">
+        <div class="label">One thing to consider</div>
+        <p>A 13-week rolling cash forecast — updated weekly — is the single highest-impact financial tool for businesses at your stage. It takes the guesswork out of "can I afford this?"</p>
+      </div>
+      <div class="benchmark-bar">
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">You: 3</span>
+        <div class="bar-track">
+          <div class="bar-fill low" style="width:25%"></div>
+          <div class="benchmark-marker" style="left:50%"></div>
+        </div>
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">/ 12</span>
+      </div>
+      <div class="benchmark-legend"><span class="tawny-dot"></span> Average for businesses your size</div>
+    </div>
+
+    <!-- Section B: Reporting — MEDIUM -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <h3><span class="tier-dot mid"></span> Financial Reporting & Close Process</h3>
+        <span class="score-badge score-mid">7 / 12</span>
+      </div>
+      <div class="insight-body">
+        <p>You have reporting, but there's a lag or a gap. Maybe your books close two or three weeks after month-end. Maybe you get a P&L but not much else. Maybe the numbers are there but you're not entirely sure they're right.</p>
+        <p style="margin-top:12px">That gap between "I have numbers" and "I trust these numbers enough to make a decision today" is where most growing businesses get stuck. It's not that you need more reports — you need the right reports, faster, with someone accountable for their accuracy.</p>
+      </div>
+      <div class="consider-box">
+        <div class="label">One thing to consider</div>
+        <p>The goal isn't just faster reporting — it's reporting you can act on within the first week of every month.</p>
+      </div>
+      <div class="benchmark-bar">
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">You: 7</span>
+        <div class="bar-track">
+          <div class="bar-fill mid" style="width:58.3%"></div>
+          <div class="benchmark-marker" style="left:50%"></div>
+        </div>
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">/ 12</span>
+      </div>
+      <div class="benchmark-legend"><span class="tawny-dot"></span> Average for businesses your size</div>
+    </div>
+
+    <!-- Section C: Planning — MEDIUM -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <h3><span class="tier-dot mid"></span> Budgeting, Planning & KPI Tracking</h3>
+        <span class="score-badge score-mid">6 / 12</span>
+      </div>
+      <div class="insight-body">
+        <p>You have pieces of the planning puzzle — maybe a budget, maybe some KPIs, maybe an informal sense of what's profitable. But it's not integrated into a system that tells you whether you're on track and, if not, what to do about it.</p>
+        <p style="margin-top:12px">The missing link is usually the review rhythm. A budget without monthly variance analysis is just a document. KPIs without thresholds and action plans are just numbers. The planning infrastructure is there — it just needs to become a decision-making loop rather than a reference document.</p>
+      </div>
+      <div class="consider-box">
+        <div class="label">One thing to consider</div>
+        <p>Set a recurring monthly meeting — even 30 minutes — to review actuals vs. budget and your top 5 KPIs. The discipline of the review matters more than the perfection of the plan.</p>
+      </div>
+      <div class="benchmark-bar">
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">You: 6</span>
+        <div class="bar-track">
+          <div class="bar-fill mid" style="width:50%"></div>
+          <div class="benchmark-marker" style="left:50%"></div>
+        </div>
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">/ 12</span>
+      </div>
+      <div class="benchmark-legend"><span class="tawny-dot"></span> Average for businesses your size</div>
+    </div>
+
+    <!-- Section D: Systems — HIGH -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <h3><span class="tier-dot high"></span> Financial Systems & Infrastructure</h3>
+        <span class="score-badge score-high">10 / 12</span>
+      </div>
+      <div class="insight-body">
+        <p>Your systems are solid — automated, documented, and designed to run without depending on any single person. This is a sign of operational maturity that directly impacts your business's scalability and value.</p>
+        <p style="margin-top:12px">At this level, the opportunity is continuous improvement: staying current with tools and integrations, finding the last 5–10% of manual work, and making sure your technology is earning its license fees in real productivity gains.</p>
+      </div>
+      <div class="consider-box">
+        <div class="label">One thing to consider</div>
+        <p>When did you last audit your tech stack for redundancy or underutilized features? Most businesses are paying for capabilities they've never turned on.</p>
+      </div>
+      <div class="benchmark-bar">
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">You: 10</span>
+        <div class="bar-track">
+          <div class="bar-fill high" style="width:83.3%"></div>
+          <div class="benchmark-marker" style="left:50%"></div>
+        </div>
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">/ 12</span>
+      </div>
+      <div class="benchmark-legend"><span class="tawny-dot"></span> Average for businesses your size</div>
+    </div>
+
+    <!-- Section E: Advisory — MEDIUM -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <h3><span class="tier-dot mid"></span> Financial Team & Advisor Alignment</h3>
+        <span class="score-badge score-mid">6 / 12</span>
+      </div>
+      <div class="insight-body">
+        <p>You have advisors, and you use them — but it's probably more ad-hoc than structured. You call when there's a question, you meet when there's a need, and the relationship works well enough. But there's no consistent rhythm and no one person who sees the full financial picture.</p>
+        <p style="margin-top:12px">The difference between "advisor I call sometimes" and "advisor who knows my business" is proactive insight. One answers questions. The other sees problems coming and brings solutions before you ask.</p>
+      </div>
+      <div class="consider-box">
+        <div class="label">One thing to consider</div>
+        <p>A quarterly financial strategy meeting — even 60 minutes — with someone who knows your numbers, your goals, and your industry can surface opportunities you'd otherwise miss.</p>
+      </div>
+      <div class="benchmark-bar">
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">You: 6</span>
+        <div class="bar-track">
+          <div class="bar-fill mid" style="width:50%"></div>
+          <div class="benchmark-marker" style="left:50%"></div>
+        </div>
+        <span style="font-size:0.8rem;color:var(--fieldstone);white-space:nowrap">/ 12</span>
+      </div>
+      <div class="benchmark-legend"><span class="tawny-dot"></span> Average for businesses your size</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CTA SECTION (Growth Tier) ═══ -->
+<section class="cta-section" id="ctaSection">
+  <div class="cta-inner">
+    <h2 id="ctaHeadline">You're closer than you think.</h2>
+    <p id="ctaCopy">Your foundation is in place — but there's a gap between where you are and where you want to be. Most owners at your stage know something isn't quite right, they just can't pinpoint it. Your Scorecard just did.<br><br>Start with our guide, <em>Two Kinds of Financials: What Your CPA Does vs. What Your Business Needs</em>. It explains the gap most owners don't know exists — and why filling it changes everything about how you manage.</p>
+    <a href="#" class="btn-primary" id="ctaButton">Download "Two Kinds of Financials" Guide →</a>
+    <br>
+    <a href="#" class="btn-secondary" id="ctaSecondary">Want to discuss your results? Book a call →</a>
+    <br><br>
+    <a href="#" class="btn-secondary">Download your full Scorecard report (PDF) →</a>
+  </div>
+</section>
+
+<!-- ═══ STAGE 2 TEASER ═══ -->
+<section class="stage2-section">
+  <div class="stage2-inner">
+    <h2>Want to go deeper?</h2>
+    <p class="intro">Choose one area for a personalized deep dive. We'll review your answers and respond within 48 hours with specific guidance for your business.</p>
+    <div class="deep-dive-options">
+      <div class="dd-option">
+        <div class="dd-icon">💰</div>
+        <div class="dd-label">Cash Flow</div>
+      </div>
+      <div class="dd-option">
+        <div class="dd-icon">📊</div>
+        <div class="dd-label">Reporting</div>
+      </div>
+      <div class="dd-option">
+        <div class="dd-icon">📋</div>
+        <div class="dd-label">Planning</div>
+      </div>
+      <div class="dd-option">
+        <div class="dd-icon">⚙️</div>
+        <div class="dd-label">Systems</div>
+      </div>
+      <div class="dd-option">
+        <div class="dd-icon">🤝</div>
+        <div class="dd-label">Advisory</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div>S1 Finance &copy; 2026 &nbsp;·&nbsp; <a href="/">Home</a> &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a></div>
+  <div style="margin-top:4px">Built in Dallas for business owners everywhere</div>
+</footer>
+
+<script>
+// ── Radar Chart (Canvas) ────────────────────────
+const canvas = document.getElementById('radarChart');
+const ctx = canvas.getContext('2d');
+
+// Sample Growth-tier scores
+const scores = [3, 7, 6, 10, 6]; // A, B, C, D, E out of 12
+const benchmark = [6, 6, 6, 6, 6]; // 50% benchmark
+const labels = ['Cash Flow', 'Reporting', 'Planning', 'Systems', 'Advisory'];
+const maxScore = 12;
+
+const cx = 240, cy = 240, radius = 180;
+const rings = 4;
+const angleStep = (Math.PI * 2) / 5;
+const startAngle = -Math.PI / 2; // top
+
+function getPoint(angle, value) {
+  const r = (value / maxScore) * radius;
+  return {
+    x: cx + r * Math.cos(angle),
+    y: cy + r * Math.sin(angle)
+  };
+}
+
+// Grid rings
+ctx.strokeStyle = '#D6D3CD';
+ctx.lineWidth = 1;
+for (let ring = 1; ring <= rings; ring++) {
+  ctx.beginPath();
+  const ringR = (ring / rings) * radius;
+  for (let i = 0; i <= 5; i++) {
+    const a = startAngle + i * angleStep;
+    const x = cx + ringR * Math.cos(a);
+    const y = cy + ringR * Math.sin(a);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.stroke();
+}
+
+// Grid spokes
+ctx.strokeStyle = '#D6D3CD';
+for (let i = 0; i < 5; i++) {
+  const a = startAngle + i * angleStep;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(cx + radius * Math.cos(a), cy + radius * Math.sin(a));
+  ctx.stroke();
+}
+
+// Benchmark area (tawny, dashed)
+ctx.setLineDash([6, 4]);
+ctx.strokeStyle = '#C08B3E';
+ctx.lineWidth = 2;
+ctx.beginPath();
+for (let i = 0; i < 5; i++) {
+  const a = startAngle + i * angleStep;
+  const p = getPoint(a, benchmark[i]);
+  if (i === 0) ctx.moveTo(p.x, p.y);
+  else ctx.lineTo(p.x, p.y);
+}
+ctx.closePath();
+ctx.stroke();
+ctx.setLineDash([]);
+
+// Score area (bottle green fill)
+ctx.fillStyle = 'rgba(27, 67, 50, 0.18)';
+ctx.strokeStyle = '#1B4332';
+ctx.lineWidth = 2.5;
+ctx.beginPath();
+for (let i = 0; i < 5; i++) {
+  const a = startAngle + i * angleStep;
+  const p = getPoint(a, scores[i]);
+  if (i === 0) ctx.moveTo(p.x, p.y);
+  else ctx.lineTo(p.x, p.y);
+}
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
+
+// Score dots
+for (let i = 0; i < 5; i++) {
+  const a = startAngle + i * angleStep;
+  const p = getPoint(a, scores[i]);
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+  ctx.fillStyle = '#1B4332';
+  ctx.fill();
+}
+
+// Labels
+ctx.font = '600 14px "Source Sans 3", sans-serif';
+ctx.fillStyle = '#2B2D2B';
+ctx.textAlign = 'center';
+const labelOffset = 24;
+for (let i = 0; i < 5; i++) {
+  const a = startAngle + i * angleStep;
+  const lx = cx + (radius + labelOffset) * Math.cos(a);
+  const ly = cy + (radius + labelOffset) * Math.sin(a);
+  // Adjust vertical position for top/bottom
+  let adjustY = 0;
+  if (i === 0) adjustY = -4; // top
+  else if (i === 2 || i === 3) adjustY = 8; // bottom
+
+  ctx.fillText(labels[i], lx, ly + adjustY);
+}
+
+// Legend
+ctx.font = '400 12px "Source Sans 3", sans-serif';
+ctx.textAlign = 'left';
+// Green line
+ctx.beginPath();
+ctx.strokeStyle = '#1B4332';
+ctx.lineWidth = 2.5;
+ctx.moveTo(60, 440);
+ctx.lineTo(90, 440);
+ctx.stroke();
+ctx.fillStyle = '#2B2D2B';
+ctx.fillText('Your score', 96, 444);
+// Tawny dashed
+ctx.beginPath();
+ctx.setLineDash([6, 4]);
+ctx.strokeStyle = '#C08B3E';
+ctx.lineWidth = 2;
+ctx.moveTo(200, 440);
+ctx.lineTo(230, 440);
+ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillText('Average for businesses your size', 236, 444);
+
+
+// ── Tier Switcher ───────────────────────────────
+const tiers = {
+  foundation: {
+    score: '14',
+    badge: 'Foundation Tier',
+    headline: "You're running your business on instinct — and it's costing you.",
+    subhead: "Your financial operations have significant gaps that are likely creating unnecessary stress and missed opportunities. The good news: these are exactly the gaps that respond fastest to structured support.",
+    ctaHeadline: "Let's talk about what you're seeing.",
+    ctaCopy: 'Your Scorecard revealed some real gaps — and if you\'re reading this, you probably already felt them before you saw the numbers. That recognition is the starting point.<br><br>We offer a free 30-minute Financial Operations Review. Not a sales pitch — a conversation about what\'s happening in your business and what the path forward looks like. We\'ll walk through your Scorecard results together and identify the 2–3 changes that would have the most immediate impact.',
+    ctaBtn: 'Book Your Free Financial Operations Review →',
+    ctaSecondary: 'Download your full Scorecard report (PDF)'
+  },
+  growth: {
+    score: '32',
+    badge: 'Growth Tier',
+    headline: "You've built something real. Your financial operations haven't caught up yet.",
+    subhead: "You have the foundation in place, but your financial infrastructure isn't keeping pace with where your business is headed. Most owners at your stage don't realize how much clarity they're leaving on the table.",
+    ctaHeadline: "You're closer than you think.",
+    ctaCopy: 'Your foundation is in place — but there\'s a gap between where you are and where you want to be. Most owners at your stage know something isn\'t quite right, they just can\'t pinpoint it. Your Scorecard just did.<br><br>Start with our guide, <em>Two Kinds of Financials: What Your CPA Does vs. What Your Business Needs</em>. It explains the gap most owners don\'t know exists — and why filling it changes everything about how you manage.',
+    ctaBtn: 'Download "Two Kinds of Financials" Guide →',
+    ctaSecondary: 'Want to discuss your results? Book a call →'
+  },
+  strategic: {
+    score: '48',
+    badge: 'Strategic Tier',
+    headline: "Your financial house is in good order. Now the question is: what are you building toward?",
+    subhead: "Your operations are strong — stronger than most businesses your size. The opportunity now is strategic: using your financial data not just to manage, but to drive decisions about growth, value, and what's next.",
+    ctaHeadline: "Strong foundation. Let's talk about what's next.",
+    ctaCopy: 'Your financial operations are in good shape — and that\'s not flattery, it\'s data. You\'ve built processes and systems that most businesses your size are still working toward.<br><br>The question at this stage is strategic: are you using your financial infrastructure to drive decisions about growth, value creation, and the long game? We work with businesses like yours on exactly that — turning solid operations into strategic advantage.',
+    ctaBtn: 'Schedule a Strategic Conversation →',
+    ctaSecondary: 'Download your full Scorecard report (PDF)'
+  }
+};
+
+function showTier(tier) {
+  const t = tiers[tier];
+  document.getElementById('scoreNumber').innerHTML = t.score + ' <span class="of-total">/ 60</span>';
+  document.getElementById('tierBadge').textContent = t.badge;
+  document.getElementById('tierHeadline').textContent = t.headline;
+  document.getElementById('tierSubhead').textContent = t.subhead;
+  document.getElementById('ctaHeadline').textContent = t.ctaHeadline;
+  document.getElementById('ctaCopy').innerHTML = t.ctaCopy;
+  document.getElementById('ctaButton').textContent = t.ctaBtn;
+  document.getElementById('ctaSecondary').textContent = t.ctaSecondary;
+
+  // Toggle active button
+  document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.tier-btn[data-tier="${tier}"]`).classList.add('active');
+}
+</script>
+
+</body>
+</html>

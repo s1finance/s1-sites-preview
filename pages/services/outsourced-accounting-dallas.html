@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outsourced Accounting for Dallas Small Businesses | S1 Finance</title>
+  <meta name="description" content="Outsourced accounting for Dallas small businesses. Bookkeeping, monthly closes, financial reporting, and the analysis that tells you what your numbers mean. S1 Finance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1B4332;
+      --green-light: #326E4A;
+      --dark: #2B2D2B;
+      --accent: #1B4332;
+      --accent-hover: #1E4A2E;
+      --amber: #C08B3E;
+      --amber-action: #D49535;
+      --bg: #FAF8F5;
+      --card-bg: #ffffff;
+      --text: #2B2D2B;
+      --text-light: #6B6E6B;
+      --border: #e2e8f0;
+      --section-alt: #F0EDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .topbar a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--green);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--amber-action) !important;
+      color: var(--dark) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      padding: 100px 40px 90px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196, 154, 42, 0.15);
+      color: var(--amber);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212,137,30,0.3);
+    }
+
+    /* ── Sections ── */
+    section { padding: 80px 40px; }
+    section.alt { background: var(--section-alt); }
+    .container { max-width: 800px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 32px;
+      color: var(--green);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+    h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 16px; }
+    .lead { font-size: 19px; color: var(--text-light); margin-bottom: 32px; }
+
+    /* ── Pain Opener ── */
+    .pain-section {
+      background: var(--bg);
+      border-left: 4px solid var(--amber);
+      padding: 32px 36px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 40px;
+    }
+    .pain-section p {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .pain-section p:last-child {
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 0;
+    }
+
+    /* ── Service Cards ── */
+    .service-group { margin-bottom: 40px; }
+    .service-group-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--amber);
+      display: inline-block;
+    }
+    .service-list { list-style: none; padding: 0; }
+    .service-list li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ── Two Kinds ── */
+    .two-kinds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .kind-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    .kind-card.tax { border-top: 4px solid var(--text-light); }
+    .kind-card.mgmt { border-top: 4px solid var(--accent); }
+    .kind-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .kind-card.tax .kind-label { color: var(--text-light); }
+    .kind-card.mgmt .kind-label { color: var(--accent); }
+    .kind-card p { font-size: 15px; margin-bottom: 0; }
+    .two-kinds-summary {
+      text-align: center;
+      font-size: 18px;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .rearview {
+      text-align: center;
+      font-style: italic;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    /* ── Why S1 ── */
+    .differentiator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .diff-item {
+      background: var(--card-bg);
+      padding: 20px 24px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 15px;
+    }
+    .diff-item strong { display: block; color: var(--green); margin-bottom: 4px; }
+
+    /* ── Who This Is For ── */
+    .fit-list { list-style: none; padding: 0; margin: 24px 0; }
+    .fit-list li {
+      padding: 12px 0 12px 32px;
+      position: relative;
+      font-size: 16px;
+    }
+    .fit-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .industries-note {
+      background: rgba(40, 92, 59, 0.06);
+      border: 1px solid rgba(40, 92, 59, 0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 15px;
+    }
+    .crosslinks {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    .crosslinks a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    /* ── How It Works ── */
+    .steps { margin: 32px 0; }
+    .step {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .step-content h3 { margin-bottom: 6px; }
+    .step-content p { margin-bottom: 0; font-size: 15px; color: var(--text-light); }
+    .step-meta {
+      display: inline-block;
+      background: var(--section-alt);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .faq-item p { font-size: 15px; color: var(--text-light); margin-bottom: 0; }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 520px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ── Draft Ribbon ── */
+    .draft-ribbon {
+      position: fixed;
+      top: 16px;
+      right: -34px;
+      background: #e53e3e;
+      color: #fff;
+      padding: 4px 40px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(45deg);
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 30px; }
+      section { padding: 56px 24px; }
+      .two-kinds { grid-template-columns: 1fr; }
+      .differentiator-grid { grid-template-columns: 1fr; }
+      .step { flex-direction: column; gap: 12px; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-ribbon">DRAFT</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  See your business clearly. &mdash; <a href="#">Take the Financial Scorecard</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">S1 <span>Finance</span></div>
+  <div class="nav-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Resources</a>
+    <a href="#" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Outsourced Accounting</div>
+    <h1>Built for owners who want real numbers.</h1>
+    <p>Bookkeeping, monthly closes, financial reporting, and the analysis that tells you what your numbers actually mean.</p>
+    <a href="#" class="hero-cta">Book a Discovery Call</a>
+  </div>
+</div>
+
+<!-- Pain Opener -->
+<section>
+  <div class="container">
+    <div class="pain-section">
+      <p>You check your bank balance every morning. Revenue looks fine. But cash is tight, payroll is always closer than it should be, and you're not sure where the money actually goes.</p>
+      <p>Your CPA sends a tax return once a year. Your bookkeeper &mdash; if you have one &mdash; records transactions. But nobody is helping you understand the real economics of your business.</p>
+      <p>That's the gap. And it's costing you more than you think.</p>
+    </div>
+
+    <h2>What Outsourced Accounting Actually Means</h2>
+    <p>Outsourced accounting isn't just hiring a bookkeeper. It's getting an entire accounting department &mdash; without the overhead of building one in-house.</p>
+    <p>We handle the day-to-day financial operations of your business. Bookkeeping, monthly closes, financial reporting, and the analysis that tells you what the numbers actually mean. You get clean data, reliable reports, and someone who picks up the phone when you have a question.</p>
+    <p>Think of it this way: instead of managing a bookkeeper, chasing down your CPA, and trying to make sense of it all yourself &mdash; you hand us the keys and we run it.</p>
+  </div>
+</section>
+
+<!-- What You Get -->
+<section class="alt">
+  <div class="container">
+    <h2>What You Get</h2>
+
+    <div class="service-group">
+      <div class="service-group-title">Financial operations, handled</div>
+      <ul class="service-list">
+        <li>Bookkeeping and transaction management</li>
+        <li>Monthly close &mdash; completed on time, every time</li>
+        <li>Bank and credit card reconciliation</li>
+        <li>Accounts receivable tracking and collections support</li>
+        <li>Accounts payable management</li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-group-title">Reporting that helps you make decisions</div>
+      <ul class="service-list">
+        <li>Monthly financial statements (income statement, balance sheet, cash flow)</li>
+        <li>Custom reports built for your business &mdash; not a generic template</li>
+        <li>Cash flow analysis and projections</li>
+        <li>Profitability analysis by customer, project, or service line</li>
+        <li>Leading indicators &mdash; the numbers that tell you what's coming, not just what happened</li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-group-title">A team that thinks like an owner</div>
+      <ul class="service-list">
+        <li>Proactive flags when something looks off</li>
+        <li>Recommendations with every report &mdash; not just data dumps</li>
+        <li>Plain-language explanations. No jargon, no dense spreadsheets nobody reads.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Two Kinds of Financials -->
+<section>
+  <div class="container">
+    <h2>Two Kinds of Financials</h2>
+    <p class="lead">Here's something most business owners don't know: there are two kinds of financials.</p>
+
+    <div class="two-kinds">
+      <div class="kind-card tax">
+        <div class="kind-label">Tax Financials</div>
+        <p>What your CPA prepares. Designed for the IRS &mdash; organized to minimize your tax liability. Important? Absolutely. But they're backward-looking and built for compliance, not decisions.</p>
+      </div>
+      <div class="kind-card mgmt">
+        <div class="kind-label">Management Financials</div>
+        <p>Built for you &mdash; the owner. They show you where your cash goes, which customers are actually profitable, what your margins look like by service line, and whether you can afford that next hire. This is the financial intelligence that helps you run the business.</p>
+      </div>
+    </div>
+
+    <p class="two-kinds-summary">Your CPA handles one kind. We handle the other. Both matter. They're different jobs.</p>
+    <p class="rearview">Most small businesses are running on tax financials alone. That's like driving by looking in the rearview mirror.</p>
+  </div>
+</section>
+
+<!-- Why S1 Finance -->
+<section class="alt">
+  <div class="container">
+    <h2>Why S1 Finance</h2>
+    <p>Most outsourced accounting firms come from a CPA background. S1's founder is a CFA &mdash; a Chartered Financial Analyst. The difference matters.</p>
+    <p>CPAs are trained in compliance and tax. CFAs are trained to analyze businesses the way investors do &mdash; looking at cash dynamics, profitability drivers, risk factors, and growth economics.</p>
+    <p>That means your financial reporting doesn't just tell you what happened last month. It tells you what to do next.</p>
+
+    <div class="differentiator-grid">
+      <div class="diff-item">
+        <strong>Interpretation, not just numbers</strong>
+        Your reports include what it means and what to do about it.
+      </div>
+      <div class="diff-item">
+        <strong>Leading indicators</strong>
+        Metrics that predict problems before they show up in the bank account.
+      </div>
+      <div class="diff-item">
+        <strong>Opportunities flagged</strong>
+        Insights you'd miss in a standard financial package.
+      </div>
+      <div class="diff-item">
+        <strong>Builder's mindset</strong>
+        We think about your business as something you're building, not just running.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who This Is For -->
+<section>
+  <div class="container">
+    <h2>Who This Is For</h2>
+    <p>Outsourced accounting with S1 Finance is built for Dallas-area business owners who:</p>
+
+    <ul class="fit-list">
+      <li>Run a service-based business doing <strong>$1M to $5M in revenue</strong></li>
+      <li>Have <strong>5 to 50 employees</strong></li>
+      <li>Are tired of managing their own books &mdash; or tired of a bookkeeper who isn't getting it done</li>
+      <li>Want real financial visibility, not just a year-end tax package</li>
+      <li>Need someone proactive &mdash; not someone you have to chase</li>
+    </ul>
+
+    <div class="industries-note">
+      <strong>Industries we work with:</strong> staffing companies, HVAC contractors, dental practices, property management firms, and other service businesses across the DFW area.
+    </div>
+
+    <div class="crosslinks">
+      Earlier-stage? Our <a href="/small-business-bookkeeping-dallas">bookkeeping services</a> might be a better fit.<br>
+      Need strategic support? Take a look at our <a href="/fractional-cfo-dallas">fractional CFO services</a>.
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="alt">
+  <div class="container">
+    <h2>How It Works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Discovery Call</h3>
+          <p>We talk about your business, what's working, what's not, and whether we're a good fit. No pitch &mdash; just a conversation.</p>
+          <span class="step-meta">Free &middot; 30 minutes</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Financial Diagnostic</h3>
+          <p>For businesses that need deeper assessment, we start with a diagnostic. We review your current financials, identify gaps and risks, and deliver a written report with prioritized recommendations.</p>
+          <span class="step-meta">$1,500 &ndash; $3,000 &middot; 2-3 weeks</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Ongoing Engagement</h3>
+          <p>We take over your financial operations. Monthly reporting, analysis, and a team that knows your business. You focus on running it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2>Common Questions</h2>
+
+    <div class="faq-item">
+      <h3>How is this different from just hiring a bookkeeper?</h3>
+      <p>A bookkeeper records transactions. We do that too &mdash; but we also close your books monthly, build custom reports, analyze your profitability, project your cash flow, and flag problems before they become emergencies. You get a complete financial function, not just data entry.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do you replace my CPA?</h3>
+      <p>No. Your CPA handles taxes. We handle everything else &mdash; the management side of your financials. We actually make your CPA's job easier by keeping the books clean and organized year-round. Most of our clients keep their CPA and work with us alongside them.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What does outsourced accounting cost for a small business?</h3>
+      <p>It depends on the complexity of your business &mdash; transaction volume, number of entities, reporting needs. We'll scope it in the discovery call. No surprises, no hidden fees.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can you fix messy books?</h3>
+      <p>Yes. Most owners we work with come to us with books that are behind, disorganized, or unreliable. We clean them up, build a reliable process, and then keep them running. The cleanup is usually the hardest part &mdash; after that, it's smooth.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I have to be in Dallas?</h3>
+      <p>We work primarily with businesses in the Dallas-Fort Worth area, but we serve clients across Texas. All of our work is done remotely &mdash; we meet over video, use cloud-based tools, and deliver reports digitally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <h2>See Where You Stand</h2>
+  <p>Ten minutes. Twelve questions. You'll see exactly where your financial operations are strong &mdash; and where the gaps are quietly costing you time or money.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-primary">Take the Financial Scorecard</a>
+    <a href="#" class="btn-secondary">Book a Discovery Call</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  S1 Finance provides outsourced accounting services for small businesses in Dallas, Fort Worth, Plano, Frisco, and across the DFW metroplex.<br>
+  We serve staffing companies, HVAC contractors, dental practices, property management firms, and other service-based businesses doing $1M&ndash;$5M in revenue.
+</footer>
+
+</body>
+</html>

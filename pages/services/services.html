@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outsourced Accounting Services for Dallas Small Businesses | S1 Finance</title>
+  <meta name="description" content="Outsourced bookkeeping, accounting, and fractional CFO services for Dallas small businesses. Three levels of support — start where you are. S1 Finance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1B4332;
+      --green-light: #326E4A;
+      --dark: #2B2D2B;
+      --accent: #1B4332;
+      --accent-hover: #1E4A2E;
+      --amber: #C08B3E;
+      --amber-action: #D49535;
+      --bg: #FAF8F5;
+      --card-bg: #ffffff;
+      --text: #2B2D2B;
+      --text-light: #6B6E6B;
+      --border: #e2e8f0;
+      --section-alt: #F0EDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .topbar a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--green);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--amber-action) !important;
+      color: var(--dark) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      padding: 90px 40px 80px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Sections ── */
+    section { padding: 80px 40px; }
+    section.alt { background: var(--section-alt); }
+    .container { max-width: 800px; margin: 0 auto; }
+    .container-wide { max-width: 960px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 32px;
+      color: var(--green);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+    h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 16px; }
+    .section-center { text-align: center; }
+
+    /* ── Tier Cards ── */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .tier-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 36px 28px 32px;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+    }
+    .tier-card.featured {
+      border-top-color: var(--amber);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .tier-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .tier-card.featured .tier-label { color: var(--amber); }
+    .tier-card h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .tier-desc {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+    .tier-who {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .tier-includes {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .tier-includes li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .tier-includes li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .tier-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .tier-link:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* ── Diagnostic Callout ── */
+    .diagnostic-section {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .diagnostic-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 12px 12px 0;
+      padding: 36px 40px;
+      margin-top: 28px;
+      text-align: left;
+    }
+    .diagnostic-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .diagnostic-card p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+    .diagnostic-card p:last-child { margin-bottom: 0; }
+    .diagnostic-meta {
+      display: inline-block;
+      background: var(--section-alt);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ── How We Work ── */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .approach-card {
+      background: var(--card-bg);
+      padding: 24px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .approach-card h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .approach-card p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 520px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ── Draft Ribbon ── */
+    .draft-ribbon {
+      position: fixed;
+      top: 16px;
+      right: -34px;
+      background: #e53e3e;
+      color: #fff;
+      padding: 4px 40px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(45deg);
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 30px; }
+      section { padding: 56px 24px; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-ribbon">DRAFT</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  See your business clearly. &mdash; <a href="#">Take the Financial Scorecard</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">S1 <span>Finance</span></div>
+  <div class="nav-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Resources</a>
+    <a href="#" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Your financial operations, handled.</h1>
+    <p>We handle your bookkeeping, accounting, and financial analysis so you can focus on running your business. Three levels of support &mdash; start where you are, grow when you're ready.</p>
+  </div>
+</div>
+
+<!-- Tier Cards -->
+<section>
+  <div class="container-wide">
+    <h2 class="section-center">Three Levels of Support</h2>
+    <p class="section-center" style="max-width: 640px; margin: 0 auto; color: var(--text-light);">Every business is at a different stage. Some need clean books. Some need the insights behind the books. Some need a financial partner at the table for big decisions.</p>
+
+    <div class="tier-grid">
+      <!-- Foundation -->
+      <div class="tier-card">
+        <div class="tier-label">Foundation</div>
+        <h3>Get your books right.</h3>
+        <p class="tier-desc">Bookkeeping, monthly close, reconciliation, and reporting you can trust. The foundation everything else builds on.</p>
+        <p class="tier-who">"You need reliable numbers &mdash; and someone you don't have to chase."</p>
+        <ul class="tier-includes">
+          <li>Transaction recording and categorization</li>
+          <li>Monthly close &mdash; on time, every time</li>
+          <li>Bank and credit card reconciliation</li>
+          <li>Monthly financial statements</li>
+          <li>AR tracking and collections support</li>
+          <li>AP management</li>
+        </ul>
+        <a href="/small-business-bookkeeping-dallas" class="tier-link">Learn more &rarr;</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="tier-card featured">
+        <div class="tier-label">Growth</div>
+        <h3>See what the numbers mean.</h3>
+        <p class="tier-desc">Everything in Foundation plus financial analysis, custom reporting, cash planning, and profitability analysis.</p>
+        <p class="tier-who">"You have the books &mdash; now you need the insights to grow."</p>
+        <ul class="tier-includes">
+          <li>Everything in Foundation</li>
+          <li>Custom reports for your business</li>
+          <li>Cash flow analysis and projections</li>
+          <li>Profitability by customer, project, or line</li>
+          <li>Leading indicators and trend analysis</li>
+          <li>Recommendations with every report</li>
+        </ul>
+        <a href="/outsourced-accounting-dallas" class="tier-link">Learn more &rarr;</a>
+      </div>
+
+      <!-- Strategic -->
+      <div class="tier-card">
+        <div class="tier-label">Strategic</div>
+        <h3>Build what's next.</h3>
+        <p class="tier-desc">Everything in Growth plus CFO-level strategic planning, investment analysis, KPI development, and board reporting.</p>
+        <p class="tier-who">"You're making big decisions and need a financial partner at the table."</p>
+        <ul class="tier-includes">
+          <li>Everything in Growth</li>
+          <li>Cash flow forecasting and scenarios</li>
+          <li>Annual budgets and variance analysis</li>
+          <li>Pricing strategy and margin optimization</li>
+          <li>Investment and capital planning</li>
+          <li>KPI development and board reporting</li>
+        </ul>
+        <a href="/fractional-cfo-dallas" class="tier-link">Learn more &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Diagnostic -->
+<section class="alt">
+  <div class="diagnostic-section">
+    <h2>Not Sure Where to Start?</h2>
+    <p>You don't have to know which tier is right. That's what the Financial Diagnostic is for.</p>
+
+    <div class="diagnostic-card">
+      <h3>The Financial Diagnostic</h3>
+      <p>We review your current financial operations &mdash; books, reports, processes, gaps &mdash; and deliver a written report with findings, risks, and prioritized recommendations.</p>
+      <p>It's the fastest way to understand where you stand and what to fix first. Many clients start here before choosing an ongoing engagement.</p>
+      <span class="diagnostic-meta">$1,500 &ndash; $3,000 &middot; 2&ndash;3 weeks</span>
+    </div>
+  </div>
+</section>
+
+<!-- How We Work -->
+<section>
+  <div class="container">
+    <h2>How We Work</h2>
+    <p>Every engagement starts the same way &mdash; regardless of tier.</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <h3>CFA lens, not just CPA.</h3>
+        <p>S1's founder is a Chartered Financial Analyst &mdash; trained to analyze businesses the way investors do. Your reports don't just summarize last month. They inform next quarter.</p>
+      </div>
+      <div class="approach-card">
+        <h3>Interpretation, not just data.</h3>
+        <p>Every report includes what the numbers mean and what to do about it. No jargon. No data dumps. Plain language.</p>
+      </div>
+      <div class="approach-card">
+        <h3>Proactive, not reactive.</h3>
+        <p>We flag problems before they hit the bank account. We don't wait for you to ask &mdash; we tell you what we see.</p>
+      </div>
+      <div class="approach-card">
+        <h3>Ownership mindset.</h3>
+        <p>We think about your business the way you do &mdash; as something you're building, not just running.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who We Help -->
+<section class="alt">
+  <div class="container">
+    <h2>Who We Help</h2>
+    <p>We work with Dallas-area business owners who run service-based businesses doing <strong>$500K to $10M in revenue</strong> with <strong>5 to 50 employees</strong>.</p>
+    <p>Our clients are owners who want real financial visibility &mdash; not just a year-end tax package. They want someone proactive, someone who picks up the phone, and someone who understands what it means to build a business.</p>
+
+    <div style="background: rgba(40,92,59,0.06); border: 1px solid rgba(40,92,59,0.15); border-radius: 8px; padding: 16px 20px; font-size: 15px; margin-top: 20px;">
+      <strong>Industries we work with:</strong> staffing companies, HVAC contractors, dental practices, property management firms, and other service businesses across the DFW area.
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <h2>Let's Talk About Your Business</h2>
+  <p>Not sure which level of support you need? Start with a conversation. We'll help you figure out the right next step.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-primary">Book a Discovery Call</a>
+    <a href="#" class="btn-secondary">Take the Financial Scorecard</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  S1 Finance provides outsourced accounting, financial analysis, and CFO support for small businesses in Dallas, Fort Worth, Plano, Frisco, and across the DFW metroplex.<br>
+  We serve staffing companies, HVAC contractors, dental practices, property management firms, and other service-based businesses.
+</footer>
+
+</body>
+</html>

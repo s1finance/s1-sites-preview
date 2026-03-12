@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractional CFO Services for Dallas Businesses | S1 Finance</title>
+  <meta name="description" content="Fractional CFO services for Dallas small businesses. Cash planning, financial analysis, and strategic support from a CFA — not just another accountant. S1 Finance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1B4332;
+      --green-light: #326E4A;
+      --dark: #2B2D2B;
+      --accent: #1B4332;
+      --accent-hover: #1E4A2E;
+      --amber: #C08B3E;
+      --amber-action: #D49535;
+      --bg: #FAF8F5;
+      --card-bg: #ffffff;
+      --text: #2B2D2B;
+      --text-light: #6B6E6B;
+      --border: #e2e8f0;
+      --section-alt: #F0EDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .topbar a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--green);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--amber-action) !important;
+      color: var(--dark) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      padding: 100px 40px 90px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(196, 154, 42, 0.15);
+      color: var(--amber);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212,137,30,0.3);
+    }
+
+    /* ── Sections ── */
+    section { padding: 80px 40px; }
+    section.alt { background: var(--section-alt); }
+    .container { max-width: 800px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 32px;
+      color: var(--green);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+    h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 16px; }
+    .lead { font-size: 19px; color: var(--text-light); margin-bottom: 32px; }
+
+    /* ── Pain Opener ── */
+    .pain-section {
+      background: var(--bg);
+      border-left: 4px solid var(--amber);
+      padding: 32px 36px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 40px;
+    }
+    .pain-section p {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .pain-section p:last-child {
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 0;
+    }
+
+    /* ── Service Cards ── */
+    .service-group { margin-bottom: 40px; }
+    .service-group-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--amber);
+      display: inline-block;
+    }
+    .service-list { list-style: none; padding: 0; }
+    .service-list li {
+      padding: 10px 0 10px 28px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 18px;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ── CFA Difference ── */
+    .cfa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .cfa-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    .cfa-card.cpa { border-top: 4px solid var(--text-light); }
+    .cfa-card.cfa { border-top: 4px solid var(--accent); }
+    .cfa-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .cfa-card.cpa .cfa-label { color: var(--text-light); }
+    .cfa-card.cfa .cfa-label { color: var(--accent); }
+    .cfa-card p { font-size: 15px; margin-bottom: 0; }
+    .cfa-summary {
+      text-align: center;
+      font-size: 18px;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* ── Two Kinds ── */
+    .two-kinds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .kind-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    .kind-card.tax { border-top: 4px solid var(--text-light); }
+    .kind-card.mgmt { border-top: 4px solid var(--accent); }
+    .kind-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .kind-card.tax .kind-label { color: var(--text-light); }
+    .kind-card.mgmt .kind-label { color: var(--accent); }
+    .kind-card p { font-size: 15px; margin-bottom: 0; }
+    .two-kinds-summary {
+      text-align: center;
+      font-size: 18px;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* ── Who This Is For ── */
+    .fit-list { list-style: none; padding: 0; margin: 24px 0; }
+    .fit-list li {
+      padding: 12px 0 12px 32px;
+      position: relative;
+      font-size: 16px;
+    }
+    .fit-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .industries-note {
+      background: rgba(40, 92, 59, 0.06);
+      border: 1px solid rgba(40, 92, 59, 0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 15px;
+    }
+    .crosslinks {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    .crosslinks a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    /* ── How It Works ── */
+    .steps { margin: 32px 0; }
+    .step {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .step-content h3 { margin-bottom: 6px; }
+    .step-content p { margin-bottom: 0; font-size: 15px; color: var(--text-light); }
+    .step-meta {
+      display: inline-block;
+      background: var(--section-alt);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    .faq-item p { font-size: 15px; color: var(--text-light); margin-bottom: 0; }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 520px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ── Draft Ribbon ── */
+    .draft-ribbon {
+      position: fixed;
+      top: 16px;
+      right: -34px;
+      background: #e53e3e;
+      color: #fff;
+      padding: 4px 40px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(45deg);
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 30px; }
+      section { padding: 56px 24px; }
+      .two-kinds { grid-template-columns: 1fr; }
+      .cfa-grid { grid-template-columns: 1fr; }
+      .step { flex-direction: column; gap: 12px; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-ribbon">DRAFT</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  See your business clearly. &mdash; <a href="#">Take the Financial Scorecard</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">S1 <span>Finance</span></div>
+  <div class="nav-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Resources</a>
+    <a href="#" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Fractional CFO</div>
+    <h1>Your business is an investment. We help you see it that way.</h1>
+    <p>Cash planning, financial analysis, and strategic support from a CFA &mdash; not just another accountant.</p>
+    <a href="#" class="hero-cta">Book a Discovery Call</a>
+  </div>
+</div>
+
+<!-- Pain Opener -->
+<section>
+  <div class="container">
+    <div class="pain-section">
+      <p>You're past the bookkeeping stage. Revenue is growing, decisions are getting bigger &mdash; but you're still relying on backward-looking reports and gut feel.</p>
+      <p>You need someone who can look at your business the way an investor would. Someone who sees the cash dynamics, the margin pressure, the growth economics &mdash; and can tell you what to do about it.</p>
+      <p>That's what a fractional CFO does. And at S1 Finance, we do it differently.</p>
+    </div>
+  </div>
+</section>
+
+<!-- What a Fractional CFO Does -->
+<section class="alt">
+  <div class="container">
+    <h2>What a Fractional CFO Does</h2>
+    <p>A fractional CFO gives you executive-level financial leadership &mdash; without the $250K+ salary of a full-time hire.</p>
+    <p>We work with you on the financial decisions that shape where your business goes next. Not bookkeeping. Not tax prep. Strategy.</p>
+
+    <div class="service-group">
+      <div class="service-group-title">Financial planning and analysis</div>
+      <ul class="service-list">
+        <li>Cash flow forecasting and scenario modeling</li>
+        <li>Annual budgets and monthly variance analysis</li>
+        <li>Pricing strategy and margin optimization</li>
+        <li>Revenue and profitability analysis by customer, project, or service line</li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-group-title">Strategic financial support</div>
+      <ul class="service-list">
+        <li>Investment analysis &mdash; should you hire, expand, or hold?</li>
+        <li>Capital planning and financing options</li>
+        <li>KPI development &mdash; the 5&ndash;7 numbers that actually drive your business</li>
+        <li>Board and investor reporting (when applicable)</li>
+      </ul>
+    </div>
+
+    <div class="service-group">
+      <div class="service-group-title">Operational finance</div>
+      <ul class="service-list">
+        <li>Financial process design &mdash; building the systems that scale</li>
+        <li>Vendor contract review and cost optimization</li>
+        <li>Team financial literacy &mdash; helping your managers understand their numbers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- The CFA Difference -->
+<section>
+  <div class="container">
+    <h2>The CFA Difference</h2>
+    <p>Most fractional CFOs come from an accounting or CPA background. S1's founder is a CFA &mdash; a Chartered Financial Analyst.</p>
+    <p>The difference matters.</p>
+
+    <div class="cfa-grid">
+      <div class="cfa-card cpa">
+        <div class="cfa-label">CPAs</div>
+        <p>Trained in compliance and tax. They're essential &mdash; but their lens is backward-looking by design. They tell you what happened.</p>
+      </div>
+      <div class="cfa-card cfa">
+        <div class="cfa-label">CFAs</div>
+        <p>Trained to analyze businesses the way investors do. Cash dynamics. Growth economics. Risk factors. Competitive positioning. We tell you what to do next.</p>
+      </div>
+    </div>
+
+    <p class="cfa-summary">Your financial reporting doesn't just summarize last month. It informs next quarter.</p>
+  </div>
+</section>
+
+<!-- Two Kinds of Financials -->
+<section class="alt">
+  <div class="container">
+    <h2>Two Kinds of Financials</h2>
+    <p class="lead">Here's something most business owners don't realize: the financials your CPA prepares are designed for the IRS &mdash; not for you.</p>
+
+    <div class="two-kinds">
+      <div class="kind-card tax">
+        <div class="kind-label">Tax Financials</div>
+        <p>Organized to minimize your tax liability. They're important. But they don't tell you which customers are profitable, whether you can afford your next hire, or where your cash is actually going.</p>
+      </div>
+      <div class="kind-card mgmt">
+        <div class="kind-label">Management Financials</div>
+        <p>Built for the owner. They show you how the business actually works &mdash; and where it's headed.</p>
+      </div>
+    </div>
+
+    <p class="two-kinds-summary">Your CPA handles one kind. We handle the other. Both matter. They're different jobs.</p>
+  </div>
+</section>
+
+<!-- Who This Is For -->
+<section>
+  <div class="container">
+    <h2>Who This Is For</h2>
+    <p>Fractional CFO services with S1 Finance are built for Dallas-area business owners who:</p>
+
+    <ul class="fit-list">
+      <li>Run a service-based business doing <strong>$2M to $10M in revenue</strong></li>
+      <li>Are making growth decisions &mdash; hiring, expanding, investing &mdash; and need better data to decide</li>
+      <li>Have reliable books but aren't getting strategic insight from their financial reports</li>
+      <li>Want a financial partner who thinks like an owner, not just an accountant</li>
+      <li>Need board-ready or investor-grade reporting</li>
+    </ul>
+
+    <div class="industries-note">
+      <strong>Industries we work with:</strong> staffing companies, HVAC contractors, dental practices, property management firms, and other service businesses across the DFW area.
+    </div>
+
+    <div class="crosslinks">
+      Earlier-stage and need help getting your books in order? Our <a href="/outsourced-accounting-dallas">outsourced accounting services</a> or <a href="/small-business-bookkeeping-dallas">bookkeeping services</a> might be a better starting point.
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="alt">
+  <div class="container">
+    <h2>How It Works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Discovery Call</h3>
+          <p>We talk about your business, what decisions you're facing, and whether CFO-level support makes sense right now. No pitch &mdash; just a conversation.</p>
+          <span class="step-meta">Free &middot; 30 minutes</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Financial Diagnostic</h3>
+          <p>Before we jump into an ongoing engagement, we start with a diagnostic. We review your current financials, identify gaps and risks, map your key performance drivers, and deliver a written report with prioritized recommendations.</p>
+          <span class="step-meta">$1,500 &ndash; $3,000 &middot; 2&ndash;3 weeks</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Ongoing CFO Engagement</h3>
+          <p>We become your financial partner. Monthly strategy meetings, rolling forecasts, custom dashboards, and a direct line when a big decision comes up. You run the business. We make sure the numbers are helping you run it well.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <h2>Common Questions</h2>
+
+    <div class="faq-item">
+      <h3>How is a fractional CFO different from my CPA?</h3>
+      <p>Your CPA handles taxes. We handle everything else &mdash; the management side of your financials. Cash planning, financial analysis, strategic support, and the reporting that helps you make decisions. Most of our clients keep their CPA and work with us alongside them.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How much time do you spend with each client?</h3>
+      <p>It varies. Some clients need 10&ndash;15 hours per month, others need 20&ndash;30. We scope it based on the complexity of your business and the decisions on your plate. The engagement flexes as your needs change.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I need a fractional CFO, or just better accounting?</h3>
+      <p>If your books are behind or unreliable, start with accounting. If your books are clean but you're not getting strategic value from your financial data, that's where a fractional CFO helps. Not sure? That's what the discovery call is for.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can you work with my existing bookkeeper or accounting team?</h3>
+      <p>Yes. We often work alongside in-house bookkeepers or accounting staff. We provide the strategic layer &mdash; the analysis, planning, and decision support &mdash; while your team handles the day-to-day operations.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I have to be in Dallas?</h3>
+      <p>We work primarily with businesses in the Dallas-Fort Worth area, but we serve clients across Texas. All of our work is done remotely &mdash; we meet over video, use cloud-based tools, and deliver reports digitally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <h2>Ready to Think Bigger About Your Numbers?</h2>
+  <p>You've built something real. The next stage &mdash; whether it's growth, efficiency, or an exit &mdash; depends on financial intelligence you can trust.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-primary">Book a Discovery Call</a>
+    <a href="#" class="btn-secondary">Take the Financial Scorecard</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  S1 Finance provides fractional CFO services for small businesses in Dallas, Fort Worth, Plano, Frisco, and across the DFW metroplex.<br>
+  We serve staffing companies, HVAC contractors, dental practices, property management firms, and other service-based businesses doing $2M&ndash;$10M in revenue.
+</footer>
+
+</body>
+</html>
