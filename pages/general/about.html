@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About S1 Finance | Outsourced Accounting & CFO Support for Dallas Small Businesses</title>
+  <meta name="description" content="S1 Finance combines financial operations expertise with an investor's analytical approach. Founded by Matt Goldberg, CFA. Headquartered in Dallas, serving clients across Texas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1B4332;
+      --green-light: #326E4A;
+      --dark: #2B2D2B;
+      --accent: #1B4332;
+      --accent-hover: #1E4A2E;
+      --amber: #C08B3E;
+      --amber-action: #D49535;
+      --bg: #FAF8F5;
+      --card-bg: #ffffff;
+      --text: #2B2D2B;
+      --text-light: #6B6E6B;
+      --border: #e2e8f0;
+      --section-alt: #F0EDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* ── Top Bar ── */
+    .topbar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .topbar a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--green);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--amber-action) !important;
+      color: var(--dark) !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      padding: 100px 40px 90px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── Sections ── */
+    section { padding: 80px 40px; }
+    section.alt { background: var(--section-alt); }
+    .container { max-width: 800px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 32px;
+      color: var(--green);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+    }
+    h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 16px; }
+
+    /* ── Founder Story ── */
+    .founder-opener {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 24px;
+      color: var(--green);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .discovery-highlight {
+      background: var(--card-bg);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0;
+      padding: 24px 28px;
+      margin: 28px 0;
+    }
+    .discovery-highlight p {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+    .discovery-highlight p:last-child { margin-bottom: 0; }
+    .discovery-highlight strong { color: var(--green); }
+
+    /* ── Investor Mindset ── */
+    .question-list {
+      font-style: italic;
+      color: var(--text-light);
+      font-size: 17px;
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    /* ── Values Grid ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .value-card {
+      background: var(--card-bg);
+      padding: 24px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .value-card h3 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .value-card p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+
+    /* ── How We Work ── */
+    .service-list { list-style: none; padding: 0; margin: 24px 0; }
+    .service-list li {
+      padding: 12px 0 12px 28px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .service-list li strong { color: var(--green); }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .cta-banner h2 { color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 540px; margin: 0 auto 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber-action);
+      color: var(--dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: #fff; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ── Draft Ribbon ── */
+    .draft-ribbon {
+      position: fixed;
+      top: 16px;
+      right: -34px;
+      background: #e53e3e;
+      color: #fff;
+      padding: 4px 40px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(45deg);
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero { padding: 80px 24px 70px; }
+      .hero h1 { font-size: 30px; }
+      section { padding: 56px 24px; }
+      .values-grid { grid-template-columns: 1fr; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .founder-opener { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-ribbon">DRAFT</div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  See your business clearly. &mdash; <a href="https://scorecard.s1finance.com/fs-scorecard">Take the Financial Scorecard</a>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">S1 <span>Finance</span></div>
+  <div class="nav-links">
+    <a href="#">Services</a>
+    <a href="#">About</a>
+    <a href="#">Resources</a>
+    <a href="/contact" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>About S1 Finance</h1>
+    <p>We combine financial operations expertise with an investor's analytical approach &mdash; supported by the processes, tools, and systems to scale with your business.</p>
+  </div>
+</div>
+
+<!-- Who We Are -->
+<section>
+  <div class="container">
+    <h2>Who We Are</h2>
+    <p>S1 Finance is an outsourced accounting and finance partner for service-based businesses &mdash; staffing firms, HVAC contractors, dental practices, property managers, and professional services companies that have outgrown basic bookkeeping but aren't ready for a full-time finance team.</p>
+    <p>Whether you need clean books, strategic insight, or a financial partner at the table for big decisions, we build the infrastructure to get you there.</p>
+    <p style="font-weight: 600; color: var(--green);">Headquartered in Dallas. Working with clients across Texas and beyond.</p>
+  </div>
+</section>
+
+<!-- Meet Matt Goldberg, CFA -->
+<section class="alt">
+  <div class="container">
+    <h2>Meet Matt Goldberg, CFA</h2>
+    <p class="founder-opener">If finance is the language of business, why do so many owners struggle to use it?</p>
+
+    <p>That question started everything.</p>
+
+    <p>Matt spent years in corporate finance at a Fortune 500 semiconductor company &mdash; managing financial planning across global facilities, analyzing R&amp;D portfolios to separate high-return projects from low-return ones, and building data tools that could identify supply gaps months before they hit. The work was complex. The stakes were real. Hundreds of millions of dollars moved through the systems he helped build.</p>
+
+    <p>But the work wasn't fulfilling.</p>
+
+    <p>Then a friend asked for help. She needed someone to look at her financials and build better invoicing processes. What started as a favor turned into something more &mdash; strategic planning, competitive analysis, day-to-day process improvements. And Matt discovered two things:</p>
+
+    <div class="discovery-highlight">
+      <p><strong>First, he loved the work.</strong> Working with someone who cared deeply about their business, solving problems that had a direct impact on their life &mdash; that satisfaction dwarfed anything he'd felt in the corporate world.</p>
+      <p><strong>Second, the gap was enormous.</strong> Small businesses couldn't access the kind of financial support that large companies take for granted. Not until they were already big enough to afford it. And by then, they'd spent years making decisions on gut feel, outdated reports, and hope.</p>
+    </div>
+
+    <p>Matt earned the Chartered Financial Analyst&reg; designation in 2019 &mdash; a credential built around investment analysis, financial reporting, and portfolio management. It shapes how S1 approaches every client: your business is an investment, and your financials should help you manage it like one.</p>
+  </div>
+</section>
+
+<!-- The Investor Mindset -->
+<section>
+  <div class="container">
+    <h2>The Investor Mindset</h2>
+    <p>Every business has financials for taxes. That's a given &mdash; you file returns, stay compliant, and work with your accountant to make sure the IRS is taken care of. Most small businesses stop there. Not because they want to, but because nobody's shown them what else their financial data can do.</p>
+
+    <p>The financials that actually help you <em>run</em> your business look completely different. They answer questions like:</p>
+
+    <p class="question-list">Which service lines are making money and which ones aren't? Can we afford to hire in Q3? What happens to cash flow if our biggest client pays 15 days late? Where should we invest next?</p>
+
+    <p>These are the financials most small businesses don't have &mdash; and even owners who've built a solid bookkeeping foundation often hit a ceiling where clean books alone aren't enough. You need the analysis layer on top: the forecasts, the profitability breakdowns, the scenario models that turn good data into better decisions. Large companies build entire finance teams around this kind of work. Business owners in the $1&ndash;10M range rarely get access to it &mdash; until now.</p>
+
+    <p>As a CFA&reg; charterholder, Matt is trained in financial analysis, valuation, and forward-looking strategy. He brings that same discipline to every S1 engagement. Your business is an investment. Your financials should help you manage it like one.</p>
+
+    <p>We work closely with your CPA and tax advisor &mdash; they handle the compliance side, we handle operations and strategy. Together, your business gets the full picture.</p>
+  </div>
+</section>
+
+<!-- What We Believe -->
+<section class="alt">
+  <div class="container">
+    <h2>What We Believe</h2>
+
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Clarity over complexity.</h3>
+        <p>Financial reports should answer questions, not create them. If you can't look at a dashboard and know where your business stands in 30 seconds, the reporting isn't working.</p>
+      </div>
+      <div class="value-card">
+        <h3>Owners deserve real numbers.</h3>
+        <p>Not just what happened last quarter &mdash; where you're headed, what's driving your margins, and what decisions are in front of you. The same quality of financial intelligence that Fortune 500 companies use.</p>
+      </div>
+      <div class="value-card">
+        <h3>Strategy comes first.</h3>
+        <p>Before we touch a spreadsheet, we understand your goals. Where do you want to take your business? What keeps you up at night? The financial work follows the strategy, not the other way around. It's in the name.</p>
+      </div>
+      <div class="value-card">
+        <h3>Build systems, not dependency.</h3>
+        <p>We put processes in place that make your financial operations stronger over time. Clean data. Reliable workflows. Reporting that scales with your growth &mdash; so your finances support your ambitions instead of constraining them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How We Work -->
+<section>
+  <div class="container">
+    <h2>How We Work</h2>
+    <p>Every engagement starts with a conversation &mdash; about your business, your goals, and where the gaps are. Some clients come to us with a clear growth plan. Others reach out because something just broke &mdash; a cash flow scare, a bookkeeper who quit, numbers that stopped making sense. Either way, the first step is the same: understand where you are, then build a plan that fits.</p>
+
+    <p>What that looks like depends on what you need:</p>
+
+    <ul class="service-list">
+      <li><strong>Full-service accounting</strong> &mdash; Your books are clean, reconciled, and closed on time. AP/AR, bank reconciliations, month-end close &mdash; the foundation everything else depends on.</li>
+      <li><strong>Financial reporting and systems</strong> &mdash; Custom dashboards, KPI tracking, profitability analysis by service line or customer, and cash flow projections built for how you actually run your business.</li>
+      <li><strong>Fractional CFO services</strong> &mdash; Budgeting, forecasting, investor reporting, scenario planning, and strategic guidance &mdash; at a fraction of the cost of a full-time hire.</li>
+    </ul>
+
+    <p>Our focus is financial operations and strategic guidance. Your CPA and tax advisor handle compliance &mdash; we handle the other side.</p>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="cta-banner">
+  <h2>See Your Business Clearly</h2>
+  <p>If you're tired of reactive accounting and ready for a financial partner who thinks like an owner, we should talk.</p>
+  <div class="cta-buttons">
+    <a href="https://scorecard.s1finance.com/fs-scorecard" class="btn-primary">Take the Financial Scorecard</a>
+    <a href="#" class="btn-secondary">Book a Discovery Call</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  S1 Finance serves small businesses in Dallas-Fort Worth and across Texas.<br><br>
+  CFA&reg; and Chartered Financial Analyst&reg; are registered trademarks owned by CFA Institute.
+</footer>
+
+</body>
+</html>
